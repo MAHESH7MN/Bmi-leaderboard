@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        text-align: center;
+        justify-content: center;
+        border: 1px ;
+        width: 700px;
+        height: 450px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        margin-left: 350px;
+        border-radius: 20px;
+        background-image:linear-gradient(120deg,#ff6b6b,#5f27cd) ;
+    }
+    button{
+        margin-top: 30px;
+    }
+    .lab{
+        margin-top: 55px;
+    }
+    h1{
+        color: ;
+        margin-top: 100px;
+    }
+    .lab{
+        margin-top: 50px;
+    }
+     
+</style>
+<body>
+    <h1>BMI caluclator</h1>
+    <H2>Enter your hight and wight to check your body mass index</H2>
+    <label class="lab">put your weight here in (KG)</label>
+    <br>
+    <input id="wight" placeholder="Enter your weight" type="number">
+    <br>
+    <br>
+    <label class="lab">And your height  here in (CM)</label>
+    <br>
+    <input id ="hight" placeholder="Enter your height" type="number">
+    <br>
+    <button onclick="caluclatebmi()">caluclate BMI</button>
+    <br>
+    <button onclick="reload()">clear</button>
+    <br>
+    <p id="head"></p>
+    <p id="output"></p>
+    <p id="news"></p>
+
+</body>
+</html>
+<script>
+ function caluclatebmi(){
+    let hight=document.getElementById("hight").value ;
+    let wight=document.getElementById("wight").value;
+     
+   let bmi=(wight/(hight/100)**2).toFixed(2)
+    
+    console.log(bmi)
+    document.getElementById("head").innerHTML="your BMI is:"
+    document.getElementById("output").innerHTML=bmi;
+
+   if(bmi<=18.4){
+    document.getElementById("news").innerHTML=" your BMI is Under weight🫥"
+   }else if(bmi>=18.5 && bmi<=24.9){
+    document.getElementById("news").innerHTML=" your BMI is Normal weigh☺️"
+   }else if(bmi>=25 && bmi<=29.9){
+    document.getElementById("news").innerHTML=" your BMI is Over Weight😥"
+   }else if (isNaN(hight) || isNaN(wight) || hight <= 0 || wight <= 0) {
+        alert('Please enter valid height and weight.');
+        return;
+        
+   }
+   else{
+    document.getElementById("news").innerHTML="your BMI is Obese😣"
+   }
+    
+ }
+     
+ 
+ function reload(){
+    window.location.reload()
+ }
+  
+</script>
