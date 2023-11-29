@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .inpu {
+            display: inline-block;
+            text-align: center;
+            align-items: center;
+        }
+
+        button {
+            font-size: 50px;
+            margin-bottom: 10px;
+            height: 60px;
+            width: 100px;
+            border-radius: 5px;
+        }
+
+        .btn {
+            height: 100px;
+            width: auto;
+            margin-top: 50px;
+            background-color: black;
+            color: azure;
+        }
+
+        input {
+            height: 50px;
+            width: 100px;
+            justify-content: space-between;
+        }
+
+        .inpu>input {
+            margin-left: 40px;
+        }
+        #min{
+            background-color: red;
+            text-align: center;
+            font-size: 20px;
+        }
+        #max{
+            background-color: green;
+            text-align: center;
+            font-size: 20px;
+        }
+        #score1{
+            font-size: 25px;
+            background-color: lightgrey;
+            text-align: center;
+        }
+        .btnn{
+            height: 100px;
+            width: auto;
+            margin-top: 50px;
+            background-color: aliceblue;
+        }
+ .buttons button:nth-child(1){
+    background-color: green;
+ }
+ .buttons button:nth-child(3){
+    background-color: green;
+ }
+ .buttons button:nth-child(4){
+    background-color: orange;
+ }
+  .buttons button:last-child{
+    background-color:purple;
+ }
+    </style>
+</head>
+<body>
+    <div class="inpu">
+        <input type="text" value="" id="min">
+        <p>min</p>
+    </div>
+    <div class="inpu">
+        <input type="text" name="" id="max">
+        <p>max</p>
+    </div>
+    <div id="score">
+        <input type="text" id="score1">
+        <p>score</p>
+    </div>
+    <div class="buttons">
+        <button onclick="minAndMax(1)">1</button> 
+        <button onclick="minAndMax(2)">2</button>
+        <button onclick="minAndMax(3)">3</button>
+        <br>
+        <button onclick="minAndMax(4)">4</button>
+        <button onclick="minAndMax(5)">5</button>
+        <button onclick="minAndMax(6)">6</button>
+        <br>
+        <button onclick="minAndMax(7)">7</button>
+        <button onclick="minAndMax(8)">8</button>
+        <button onclick="minAndMax(9)">9</button>
+        <br>
+        <button onclick="minAndMax(0)">0</button>
+    </div>
+    <div class="sub">
+        <button onclick="update1()" class="btn">ENTER</button>
+        <button onclick="clearAll()" class="btnn">RESET</button>
+    </div>
+
+    <script>
+        let currentScore = "";
+        let min = "";
+        let max = "";
+
+        function minAndMax(number) {
+            currentScore += number;
+            document.getElementById("score1").value = currentScore;
+
+             
+        }
+
+        function update1() {
+            if ( min==="" || (parseInt(currentScore) < parseInt(max))) {
+                min = currentScore;
+                document.getElementById("min").value = min;
+            }
+            if (max==="" || parseInt(currentScore) > parseInt(max)) {
+                max = currentScore;
+                document.getElementById("max").value = max;
+            }
+            clearScore();
+        }
+
+        function clearScore() {
+            currentScore = "";
+            document.getElementById("score1").value = currentScore;
+        }
+
+        function clearAll() {
+            
+            min = "";
+            max = "";
+            clearScore();
+            document.getElementById("min").value = min;
+            document.getElementById("max").value = max;
+        }
+    </script>
+</body>
+</html>
